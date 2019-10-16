@@ -24,6 +24,15 @@ def scrape_info():
     # Find the headlines
     results1 = soup.find('div', class_='content_title').text
     results2 = soup.find('div', class_='article_teaser_body').text
+    # Scrape the weather
+    url = 'https://twitter.com/marswxreport?lang=en'
+    browser.visit(url)
+    time.sleep(1)
+    # Scrape page into Soup
+    html = browser.html
+    soup = bs(html, "lxml")
+    mars_weather = soup.body.find('p', class_="TweetTextSize").text  
+    
     # browser.quit()
     # Scrape for the featured image
     # browser = init_browser()
@@ -56,7 +65,8 @@ def scrape_info():
         "headline": results1,
         "teaser": results2,
         "featured_image": mars_hires_img,
-        "mars_facts_table": mars_facts_html_table
+        "mars_facts_table": mars_facts_html_table,
+        "mars_weather": mars_weather
     }
 
     # Close the browser after scraping
