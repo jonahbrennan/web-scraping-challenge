@@ -1,6 +1,8 @@
 from splinter import Browser
 from bs4 import BeautifulSoup as bs
 import time
+from flask import Flask, jsonify, render_template, redirect
+import pandas as pd
 
 
 def init_browser():
@@ -58,7 +60,45 @@ def scrape_info():
     mars_facts_html_table = mars_facts_df.to_html()
     # mars_facts_html_table = mars_facts_html_table.replace('\n', '')
 
-    browser.quit()
+    url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
+    browser.visit(url)
+    # time.sleep(3)
+    html = browser.html
+    soup = bs(html, 'lxml')
+    time.sleep(1)
+
+    # Retrieve all div elements
+    # articles = soup.find_all('div', class_='item') 
+    clickers = []
+    articles = soup.find_all('div', class_='item')
+    # articles = soup.find_all('div', class_="description")
+
+#     print(articles)
+    img_urls = []
+    titles = []
+    for article in articles:
+        title = []
+        # Use Beautiful Soup's find() method to navigate and retrieve attributes
+        title = article.find('h3').text
+        link = article.find('a')
+        titles.append(title)
+#         print(article)
+#         try:
+        browser.click_link_by_partial_text(title)
+#             time.sleep(1)
+        html = browser.html
+        soup = bs(html, 'html.parser')
+        img_url = soup.find('a', target='_blank').get('href')
+        img_urls.append(img_url)
+        browser.back()
+        # except:
+        #     print(f'"Exception! - Scraping Aborted"{url}')
+            
+        #     browser.back()
+        
+    
+
+        # browser.quit()
 
     # Store data in a dictionary
     mars_data = {
@@ -66,11 +106,15 @@ def scrape_info():
         "teaser": results2,
         "featured_image": mars_hires_img,
         "mars_facts_table": mars_facts_html_table,
-        "mars_weather": mars_weather
+        "mars_weather": mars_weather,
+        "Cerberus": img_urls[0],
+        "Schiaparelli": img_urls[1],
+        "Syrtis": img_urls[2],
+        "Valles": img_urls[3],
     }
 
     # Close the browser after scraping
-    browser.quit()
+    # browser.quit()
 
     # Return results
     return mars_data
