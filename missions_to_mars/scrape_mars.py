@@ -114,7 +114,7 @@ def scrape_info():
     }
 
     # Close the browser after scraping
-    # browser.quit()
+    browser.quit()
 
     # Return results
     return mars_data

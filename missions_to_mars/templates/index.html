@@ -2,39 +2,231 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149765390-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-149765390-1');
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Mars Data</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <title>Mars X</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </head>
+<body class="margin-top-40" >
+    <!-- <nav class="navbar navbar-expand-lg navbar navbar-light fixed-top "  style="background-color: #e3fafd;">
+        <a class="navbar-brand" href="index.html">LatitudeX</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+             
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plots</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="visualizations/max_temperature.html">Max Temperature</a>
+                <div class="dropdown-divider"></div>
+    
+                <a class="dropdown-item" href="visualizations/cloudiness.html">Cloudiness</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="visualizations/humidity.html">Humidity</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="visualizations/wind_speed.html">Windiness</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="visualizations/temperature_gmaps.html">GMaps</a>
+              </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link"  href="visualizations/comparison.html">Comparison<span class="sr-only">(current)</span></a>
+                
+              </li>
+            <li class="nav-item">
+                    <a class="nav-link" href="visualizations/data.html">Data</a>
+                  </li>
+          </ul>
 
-<body>
+        </div>
+      </nav> -->
+
   <div class="container-fluid">
-    <div class="jumbotron text-center">
-      <h1>Visit Mars</h1>
-      <p>Meet Martians and enjoy the weather.</p>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
-    </div>
-    <img src="{{ vacation.featured_image}}" alt="Sloth">
-    <h3>Martian News:</h3>
-    <h2>{{ vacation.headline }}</h2>
-    <h2>{{ vacation.teaser }}</h2>
-    <h2>Weather on Mars:</h2>
-    <h3>{{ vacation.mars_weather }}</h3>
-    <!-- <h3>Min Temp: {{ vacation.teaser }}</h3> -->
-    <div>{{ vacation.mars_facts_table|safe }}
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-8">
 
-    </div>
-    <img src="{{ vacation.Cerberus}}" alt="Cerberus">
-    <img src="{{ vacation.Schiaparelli}}" alt="Schiaparelli">
-    <img src="{{ vacation.Syrtis}}" alt="Syrtis">
-    <img src="{{ vacation.Valles}}" alt="Valles">
+                    <h1 class="display-5" >Mission To Mars</h1>
+                    <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Launch!</a></p>
+                    <p>Meet Martians and enjoy the weather.</p>
+                    <h2>Martian News:</h2>
+                    <h3>{{ vacation.headline }}</h3>
+                    <h3>{{ vacation.teaser }}</h3>
+                    <p style="font-size:18px;float:right;clear:both">
+                        Enjoy Your Stay!
+                  </p>
+                    <hr>
+                    <!-- float:left;clear:both; style="float:right;clear:both" -->
+                    <p style="font-size:18px"><img src="{{ vacation.featured_image}}" alt="Featured Image" style="float:left;clear:both;width:100%;margin-right:15px;"> </p>
+                      <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
 
+            </div>
+                <div class="col-md-4">
+        <div class="box-dot">
+            <div class="row">
+                <div class="col-md-12">
+                  
+                    <h2>Mars Weather</h2>
+                      <div>{{ vacation.mars_weather|safe }}
 
+            <hr>
+                </div>
+                <div class="col-md-12">
+                 
+                      <h2>Mars Facts</h2>
+                        <div>{{ vacation.mars_facts_table|safe }}
+  
+              <hr>
+                  </div>
+        </div>
+        
+        <!-- <div class="row"  style="padding-top: 10%;padding-bottom: 20%">
+            <div class="col-md-6">
+                   <a href="visualizations/max_temperature.html"><img src="Images/TemperatureOverLattitude.png" alt="TempLats" class="img-thumbnail" style="float:left;clear:both;width:150px">
+                   </a>
+                  <div class="caption"><h3 class="text-center">temperature</h3></div>
+
+            </div>
+            <div class="col-md-6">
+
+                    <a href="visualizations/cloudiness.html"><img src="Images/CloudinessOverLattitude.png" alt="CloudyLats" class="img-thumbnail" style="float:left;clear:both;width:150px">
+                    </a>
+                    <div class="caption"><h3 class="text-center">cloudiness</h3></div>
+            
+            </div>
+        </div>
+        
+        <div class="row">
+                <div class="col-md-6">
+                    <a href="visualizations/humidity.html"><img src="Images/HumidityOverLattitude.png" alt="HumidLats" class="img-thumbnail" style="float:left;clear:both;width:150px">
+                    </a>
+                    <div class="caption"><h3 class="text-center">humidity</h3></div>
+
+                </div>
+                <div class="col-md-6">
+                    <a href="visualizations/wind_speed.html"><img src="Images/WindinessOverLattitude.png" alt="WindyLats" class="img-thumbnail" style="float:left;clear:both;width:150px">
+                  </a>
+                  <div class="caption"><h3 class="text-center">windiness</h3></div>
+
+                </div>
+            </div>
+            <div class="row"  style="padding-top: 10%;padding-bottom: 20%">
+                <div class="col-md-12">
+                    <a href="visualizations/temperature_gmaps.html"><img src="Images/Temperature_OverWatch.png" alt="MapLats" class="img-thumbnail" style="float:none;clear:both;width:150px">
+                    </a>
+                    <div class="caption"><h3 class="text-center">temp_map</h3></div> -->
+            <hr>
+                </div>
+        </div>
+        </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+          <div class="caption"><h3 class="text-center">Cerberus hemisphere</h3></div>
+          <!-- <h2 class="display-5"  >Temperature Over Latitude</h2> -->
+          <hr>
+          <!-- float:left;clear:both; style="float:right;clear:both" -->
+          <p><a href="#"><img src="{{ vacation.Cerberus}}" alt="Cerberus" 
+              style="float:left;clear:both;width:100%;margin-right:15px;"></a>
+              <br>
+          </p>
+          <p style="float:right;clear:both">
+            Mosaic of the Cerberus hemisphere of Mars projected into point perspective, 
+            a view similar to that which one would see from a spacecraft. 
+            This mosaic is composed of 104 Viking Orbiter images acquired…
+
+          </p>
 
   </div>
+      <div class="col-md-6">
+              <div class="caption"><h3 class="text-center" >Schiaparelli hemisphere</h3></div>
+              <!-- <h2 class="display-5"  style="color:#5adfd6;">Cloudiness Over Latitude</h2> -->
+              <hr>
+              <!-- float:left;clear:both; style="float:right;clear:both" -->
+              <p><a href=#><img src="{{ vacation.Schiaparelli}}" 
+                  alt="Schiaparelli" style="float:left;clear:both;width:100%;margin-right:15px;"></a>
+                  <br>
+              </p>
+              <p style="float:right;clear:both">
+                Mosaic of the Schiaparelli hemisphere of Mars projected into point perspective, 
+                a view similar to that which one would see from a spacecraft. 
+                The images were acquired in 1980 during early northern…
+
+              </p>
+      </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+          <div class="caption"><h3 class="text-center" >Syrtis Major hemisphere</h3></div>
+          <!-- <h2 class="display-5"  >Temperature Over Latitude</h2> -->
+          <hr>
+          <!-- float:left;clear:both; style="float:right;clear:both" -->
+          <p><a href="#"><img src="{{ vacation.Syrtis}}" alt="Syrtis" 
+              style="float:left;clear:both;width:100%;margin-right:15px;"></a>
+              <br>
+          </p>
+          <p style="float:right;clear:both">
+            Mosaic of the Syrtis Major hemisphere of Mars projected into point perspective, 
+            a view similar to that which one would see from a spacecraft. 
+            This mosaic is composed of about 100 red and violet…
+
+          </p>
+          <!-- <hr class="my-4">
+          <p>Here we can display some more text!</p>
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
   </div>
+      <div class="col-md-6">
+              <div class="caption"><h3 class="text-center" >Valles Marineris hemisphere</h3></div>
+              <!-- <h2 class="display-5"  style="color:#5adfd6;">Cloudiness Over Latitude</h2> -->
+              <hr>
+              <!-- float:left;clear:both; style="float:right;clear:both" -->
+              <p><a href=#><img src="{{ vacation.Valles}}" 
+                  alt="Valles" style="float:left;clear:both;width:100%;margin-right:15px;"></a>
+                  <br>
+              </p>
+              <p style="float:right;clear:both">
+                Mosaic of the Valles Marineris hemisphere of Mars projected into point perspective, 
+                a view similar to that which one would see from a spacecraft. 
+                The distance is 2500 kilometers from the surface of…
+
+              </p>
+      </div>
+</div>
+
+<!-- <div> 
+  <img src="{{ vacation.Cerberus}}" alt="Cerberus">
+  <img src="{{ vacation.Schiaparelli}}" alt="Schiaparelli">
+  <img src="{{ vacation.Syrtis}}" alt="Syrtis">
+  <img src="{{ vacation.Valles}}" alt="Valles">
+</div> -->
+
+</div>
+
 </body>
 
 </html>

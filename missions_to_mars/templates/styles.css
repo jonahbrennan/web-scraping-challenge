@@ -1,0 +1,212 @@
+/* Giving the body the specified background color, adding font sizes for the h1 and h3 elements we'll be using */
+body {
+  background: #b0d4d2;
+}
+
+h1 {
+  font-size: 35px;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 6px #79bdb9;
+  /* text-shadow: 12px 0px 12px white ; */
+
+}
+h2 {
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+  /* text-shadow: 2px 2px rgb(0, 45, 87); */
+  text-shadow: 2px 2px 6px #79bdb9;
+
+}
+h3 {
+  font-size: 15px;
+}
+h4 {
+  font-size: 35px;
+  color: rgb(13, 21, 51, .7);
+  text-shadow: 12px 0px 12px white ;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.box {
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  background: rgba(11, 227, 255, 0.4);
+  /* border: 4px; */
+}
+.box-dot {
+  width: 100%;
+  padding: 15px;
+  color: rgb(1, 162, 190);
+  /* background: #b0d4d29d; */
+  background: rgba(6, 248, 135, 0.1);
+  box-shadow: inset 4px 4px 14px #5adfd6c0;
+  border-radius: 10px 25px;
+  border: .5px;
+  border-color: rgb(63, 0, 59);
+  /* border-style: dotted; */
+}
+.box-shadow {
+  box-shadow: 5px 10px 50px rgb(2, 13, 49);
+  width: 100%;
+  height: 120px;
+  padding: 20px;
+  color: rgb(13, 21, 51);
+  background: rgba(113, 228, 243, 0.856);
+  border: 4px;
+  border-color: rgb(29, 0, 27);
+  border-style: dotted;
+}
+
+.dataframe {
+  margin-top: 30px;
+  font-size: 16px;
+  text-align: center;
+  border-collapse: collapse;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-bottom: 1px solid rgb(156, 156, 156);
+  
+}
+
+.margin-top-80 {
+  margin-top: 80px;
+}
+.margin-top-40 {
+  margin-top: 40px;
+}
+.margin-top-30 {
+  margin-top: 30px;
+}
+
+.jumbotron {
+  /* box-shadow: 5px 10px 40px  #5adfd6;
+  padding: 10px; */
+  background:rgba(240, 255, 255, 0.5);
+}
+/* Giving our navbar some padding and a background color */
+.navbar {
+  /* box-shadow: 5px 10px 50px rgb(2, 13, 49);  */
+  box-shadow: 5px 10px 40px  #5adfd6;
+
+  padding: 10px;
+  background: #5191fd;
+}
+
+
+/* Making our navbar li's inline-block elements this makes it so we can have 
+multiple on the same line. Floats could have been used too */
+.navbar li {
+  display: inline-block;
+  padding: 10px;
+  /* margin-right: 1px;
+  margin-left: 1px; */
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+
+
+}
+
+/* Getting rid of the default link styles here */
+.navbar li a {
+  color: #000;
+  text-decoration: none;
+}
+
+/* Styling the header, giving it a height, a background color, and some top padding */
+.header {
+  height: 200px;
+  padding-top: 20px;
+  background: #cdcdcd;
+}
+
+/* Centering our h1 tag inside our header, giving it a little padding, removing its margin */
+.header h1 {
+  padding: 60px;
+  margin: 0;
+  color: #000;
+  text-align: center;
+}
+
+/* Giving the .post element margin on 3 sides */
+.post {
+  margin-top: 50px;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+
+#nav-select {
+  visibility: hidden;
+}
+
+/* Here we define some styles that will ONLY be applied at screen sizes below 480 pixels */
+@media (max-width: 920px) {
+  /* .navbar li {
+
+    padding: 3px;
+
+  } */
+  .post {
+    margin-top: 5px;
+    margin-right: 1px;
+    margin-left: 1px;
+  }
+  .dataframe {
+    /* margin-top: 2px; */
+    font-size: 12px;
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-bottom: 1px solid rgb(156, 156, 156);
+    
+  }
+  th {
+    font-size:15px;
+  }
+}
+@media (max-width: 660px) {
+  /* .navbar ul {
+
+    visibility: hidden;
+
+  } */
+  #nav-select {
+    visibility: visible;
+  }
+  .box-dot {
+    width: 100%;
+    /* float:left; */
+    padding: 20px;
+    /* color: rgb(13, 21, 51); */
+    color: rgb(1, 162, 190);
+    background: rgba(6, 248, 135, 0.1);
+    box-shadow: inset 4px 4px 14px #5adfd6c0;    
+    /* border: .5px;
+    border-color: rgb(63, 0, 59);
+    border-style: dotted; */
+  }
+  .dataframe {
+    /* margin-top: 2px; */
+    font-size: 9px;
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-bottom: 1px solid rgb(156, 156, 156);
+    
+  }
+
+  /* tr style="font-size:18px;text-align: center;color: azure;text-shadow: 2px 2px 6px #7fb3b0;" */
+  .tr {
+    font-size:10px;
+  }
+  th {
+    font-size:11px;
+  }
+}
